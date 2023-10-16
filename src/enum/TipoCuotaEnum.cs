@@ -1,0 +1,1 @@
+public enum TipoDeCuotaEnum{DIARIA , MENSUAL , CUOTA_SOCIO}
