@@ -19,11 +19,19 @@ namespace ClubDeportivo
 
         private void SalirButton_Click(object sender, EventArgs e)
         {
+            this.Close();
             this.Hide();
             Login formLogin = new Login();
             formLogin.ShowDialog();
 
-          
+
+        }
+
+        private void IdentificarButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BuscarCliente buscarCliente = new BuscarCliente();
+            buscarCliente.ShowDialog();
         }
     }
 }

@@ -99,6 +99,7 @@ partial class Login
         Controls.Add(UsuarioLabel);
         Name = "Login";
         Text = "Login";
+        Load += Login_Load;
         ResumeLayout(false);
         PerformLayout();
     }

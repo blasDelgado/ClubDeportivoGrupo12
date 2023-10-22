@@ -44,6 +44,7 @@
             IdentificarButton.TabIndex = 0;
             IdentificarButton.Text = "Identificar";
             IdentificarButton.UseVisualStyleBackColor = false;
+            IdentificarButton.Click += IdentificarButton_Click;
             // 
             // ClientesButton
             // 
