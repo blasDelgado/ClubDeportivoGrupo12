@@ -20,7 +20,7 @@ namespace ClubDeportivo.Datos
             try
             {
                 // instanciamos una conexion UNICA
-                sqlCon = Conexion.getInstancia().CrearConcexion();
+                sqlCon = Conexion.getInstancia().CrearConexion();
                 // Configuramos el comando
                 MySqlCommand comando = new MySqlCommand("IngresoLogin", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
