@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Data;
 
 namespace ClubDeportivo;
@@ -19,6 +20,8 @@ public partial class Login : Form
         user = UsuarioTextBox.Text;
         pass = ContrasenaTextBox.Text;
 
+        validarDatos(user, pass);
+
         DataTable tablaLogin = new DataTable(); // es la que recibe los datos desde el formulario
         Datos.UsuariosLogin dato = new Datos.UsuariosLogin(); // variable que contiene todas las caracteristicas de la clase
         tablaLogin = dato.Log_Usu(user, pass);
@@ -35,15 +38,49 @@ public partial class Login : Form
         }
         else
         {
-            MessageBox.Show("Usuario y/o clave incorrecta. Vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MessageBox.Show("Usuario y/o clave incorrecta. Vuelve a intentarlo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ErrorPanel.Visible = true;
             UsuarioTextBox.Clear();
             ContrasenaTextBox.Clear();
         }
 
     }
 
-    private void Login_Load(object sender, EventArgs e)
+    public void validarDatos(String user, String pass)
     {
+        if (string.IsNullOrEmpty(user) && string.IsNullOrEmpty(pass))
+        {
+            AsteriscoLabel1.Visible = true;
+            MensajeLabel1.Visible = true;
+            AsteriscoLabel2.Visible = true;
+            MensajeLabel2.Visible = true;
+
+        }
+
+        else if (string.IsNullOrEmpty(user))
+        {
+            AsteriscoLabel1.Visible = true;
+            MensajeLabel1.Visible = true;
+        }
+
+        else if (string.IsNullOrEmpty(pass))
+        {
+            AsteriscoLabel2.Visible = true;
+            MensajeLabel2.Visible = true;
+        }
 
     }
+
+    private void UsuarioTextBox_TextChanged(object sender, EventArgs e)
+    {
+        AsteriscoLabel1.Visible = false;
+        MensajeLabel1.Visible = false;
+    }
+
+    private void ContrasenaTextBox_TextChanged(object sender, EventArgs e)
+    {
+        AsteriscoLabel2.Visible = false;
+        MensajeLabel2.Visible = false;
+    }
+
 }
