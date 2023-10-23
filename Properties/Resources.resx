@@ -121,6 +121,9 @@
   <data name="f2e73ad2ef97ec38f7345c43df637a92" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\f2e73ad2ef97ec38f7345c43df637a92.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="aptitud-fisica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aptitud-fisica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="candado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\candado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,7 +133,7 @@
   <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="aptitud-fisica" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aptitud-fisica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoClub" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoClub.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

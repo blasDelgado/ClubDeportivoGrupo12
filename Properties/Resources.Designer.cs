@@ -93,6 +93,16 @@ namespace ClubDeportivo.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoClub {
+            get {
+                object obj = ResourceManager.GetObject("LogoClub", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoGym_PNG {
             get {
                 object obj = ResourceManager.GetObject("LogoGym-PNG", resourceCulture);

@@ -46,11 +46,13 @@ partial class Login
         MensajeLabel3 = new Label();
         panel1 = new Panel();
         pictureBox1 = new PictureBox();
+        pictureBox2 = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)UserPictureBox).BeginInit();
         ((System.ComponentModel.ISupportInitialize)PassPictureBox).BeginInit();
         ErrorPanel.SuspendLayout();
         panel1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
         SuspendLayout();
         // 
         // UsuarioLabel
@@ -96,8 +98,9 @@ partial class Login
         // 
         // LoginButton
         // 
-        LoginButton.BackColor = SystemColors.ButtonShadow;
+        LoginButton.BackColor = Color.Transparent;
         LoginButton.FlatAppearance.BorderColor = Color.Gray;
+        LoginButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(124, 123, 255);
         LoginButton.FlatStyle = FlatStyle.Flat;
         LoginButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
         LoginButton.Location = new Point(66, 247);
@@ -124,7 +127,7 @@ partial class Login
         // 
         MensajeLabel1.AutoSize = true;
         MensajeLabel1.ForeColor = Color.Red;
-        MensajeLabel1.Location = new Point(75, 115);
+        MensajeLabel1.Location = new Point(67, 115);
         MensajeLabel1.Name = "MensajeLabel1";
         MensajeLabel1.Size = new Size(143, 15);
         MensajeLabel1.TabIndex = 6;
@@ -167,7 +170,7 @@ partial class Login
         // 
         MensajeLabel2.AutoSize = true;
         MensajeLabel2.ForeColor = Color.Red;
-        MensajeLabel2.Location = new Point(75, 185);
+        MensajeLabel2.Location = new Point(67, 185);
         MensajeLabel2.Name = "MensajeLabel2";
         MensajeLabel2.Size = new Size(143, 15);
         MensajeLabel2.TabIndex = 10;
@@ -260,12 +263,23 @@ partial class Login
         pictureBox1.TabIndex = 16;
         pictureBox1.TabStop = false;
         // 
+        // pictureBox2
+        // 
+        pictureBox2.Image = Properties.Resources.LogoClub;
+        pictureBox2.Location = new Point(143, 37);
+        pictureBox2.Name = "pictureBox2";
+        pictureBox2.Size = new Size(597, 64);
+        pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+        pictureBox2.TabIndex = 17;
+        pictureBox2.TabStop = false;
+        // 
         // Login
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(224, 224, 224);
         ClientSize = new Size(891, 502);
+        Controls.Add(pictureBox2);
         Controls.Add(panel1);
         Controls.Add(pictureBox1);
         Name = "Login";
@@ -277,6 +291,7 @@ partial class Login
         panel1.ResumeLayout(false);
         panel1.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+        ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
         ResumeLayout(false);
     }
 
@@ -300,4 +315,5 @@ partial class Login
     private Label MensajeLabel3;
     private Panel panel1;
     private PictureBox pictureBox1;
+    private PictureBox pictureBox2;
 }
