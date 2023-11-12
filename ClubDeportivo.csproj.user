@@ -4,10 +4,19 @@
     <Compile Update="BuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ClienteLocalizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormMenuPpal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SinLocalizarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

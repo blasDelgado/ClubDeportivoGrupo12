@@ -29,7 +29,6 @@ namespace ClubDeportivo
 
         private void IdentificarButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             BuscarCliente buscarCliente = new BuscarCliente();
             buscarCliente.ShowDialog();
         }

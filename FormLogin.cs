@@ -28,11 +28,12 @@ public partial class Login : Form
         if (tablaLogin.Rows.Count > 0)
         {
             // quiere decir que el resultado tiene 1 fila por lo que el usuario EXISTE
-            MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Inicio de sesión exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
 
             FormMenuPpal formMenuPpal = new FormMenuPpal();
             formMenuPpal.ShowDialog();
+
 
             this.Close(); // para que no quede la ventana escondida. Sin esto el sistema sigue en ejecucion hasta que se lo termine desde consola.
         }

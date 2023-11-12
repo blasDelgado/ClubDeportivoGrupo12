@@ -283,6 +283,7 @@ partial class Login
         Controls.Add(panel1);
         Controls.Add(pictureBox1);
         Name = "Login";
+        StartPosition = FormStartPosition.CenterScreen;
         Text = "Login";
         ((System.ComponentModel.ISupportInitialize)UserPictureBox).EndInit();
         ((System.ComponentModel.ISupportInitialize)PassPictureBox).EndInit();

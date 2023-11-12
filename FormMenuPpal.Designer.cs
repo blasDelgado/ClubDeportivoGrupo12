@@ -32,15 +32,18 @@
             ClientesButton = new Button();
             ActividadesButton = new Button();
             SalirButton = new Button();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // IdentificarButton
             // 
             IdentificarButton.BackColor = SystemColors.ControlDark;
             IdentificarButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            IdentificarButton.Location = new Point(139, 51);
+            IdentificarButton.Location = new Point(148, 150);
             IdentificarButton.Name = "IdentificarButton";
-            IdentificarButton.Size = new Size(138, 39);
+            IdentificarButton.Size = new Size(138, 100);
             IdentificarButton.TabIndex = 0;
             IdentificarButton.Text = "Identificar";
             IdentificarButton.UseVisualStyleBackColor = false;
@@ -50,9 +53,9 @@
             // 
             ClientesButton.BackColor = SystemColors.ControlDark;
             ClientesButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            ClientesButton.Location = new Point(139, 113);
+            ClientesButton.Location = new Point(383, 150);
             ClientesButton.Name = "ClientesButton";
-            ClientesButton.Size = new Size(138, 39);
+            ClientesButton.Size = new Size(138, 100);
             ClientesButton.TabIndex = 1;
             ClientesButton.Text = "Clientes";
             ClientesButton.UseVisualStyleBackColor = false;
@@ -61,35 +64,62 @@
             // 
             ActividadesButton.BackColor = SystemColors.ControlDark;
             ActividadesButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            ActividadesButton.Location = new Point(139, 170);
+            ActividadesButton.Location = new Point(606, 150);
             ActividadesButton.Name = "ActividadesButton";
-            ActividadesButton.Size = new Size(138, 39);
+            ActividadesButton.Size = new Size(138, 100);
             ActividadesButton.TabIndex = 2;
             ActividadesButton.Text = "Actividades";
             ActividadesButton.UseVisualStyleBackColor = false;
             // 
             // SalirButton
             // 
-            SalirButton.Location = new Point(324, 235);
+            SalirButton.Location = new Point(530, 348);
             SalirButton.Name = "SalirButton";
-            SalirButton.Size = new Size(75, 23);
+            SalirButton.Size = new Size(229, 32);
             SalirButton.TabIndex = 3;
             SalirButton.Text = "Salir";
             SalirButton.UseVisualStyleBackColor = true;
             SalirButton.Click += SalirButton_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.usuario;
+            pictureBox1.Location = new Point(682, 28);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 38);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(736, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(74, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Hola, Admin";
+            // 
             // FormMenuPpal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 279);
+            ClientSize = new Size(891, 502);
+            ControlBox = false;
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
             Controls.Add(SalirButton);
             Controls.Add(ActividadesButton);
             Controls.Add(ClientesButton);
             Controls.Add(IdentificarButton);
+            Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Name = "FormMenuPpal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu Principal";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -98,5 +128,7 @@
         private Button ClientesButton;
         private Button ActividadesButton;
         private Button SalirButton;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

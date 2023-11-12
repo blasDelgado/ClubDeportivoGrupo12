@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Datos",
-    "\\Properties"
+    "\\src",
+    "\\src\\clases",
+    "\\src\\enum"
   ],
-  "SelectedNode": "\\FormLogin.cs",
+  "SelectedNode": "\\BuscarCliente.cs",
   "PreviewInSolutionExplorer": false
 }
