@@ -57,11 +57,14 @@ namespace ClubDeportivo
             if (dniNum > 0)
             {
                 // buscar al cliente en la base de datos
-                Cliente cliente;
+                Datos.ClienteDatos cli = new Datos.ClienteDatos();
+                Cliente cliente = cli.IdentificarCliente(dniNum);
 
-                if (dniNum == 123456) // Cambiar 123456 por el valor buscado
+
+                if (dniNum == cliente.getDni())
                 {
                     ClienteLocalizado clienteLocalizado = new ClienteLocalizado();
+                    clienteLocalizado.cliente = cliente;
                     clienteLocalizado.Show();
                 }
                 else
