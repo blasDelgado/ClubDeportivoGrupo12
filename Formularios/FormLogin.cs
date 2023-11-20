@@ -32,6 +32,7 @@ public partial class Login : Form
             this.Hide();
 
             FormMenuPpal formMenuPpal = new FormMenuPpal();
+            formMenuPpal.rol = "Hola, " + tablaLogin.Rows[0][0];
             formMenuPpal.ShowDialog();
 
 

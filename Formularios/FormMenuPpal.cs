@@ -16,7 +16,11 @@ namespace ClubDeportivo
         {
             InitializeComponent();
         }
-
+        internal string? rol;
+        private void FormMenuPpal_Load(object sender, EventArgs e)
+        {
+            lblRol.Text = rol;
+        }
         private void SalirButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -32,5 +36,7 @@ namespace ClubDeportivo
             BuscarCliente buscarCliente = new BuscarCliente();
             buscarCliente.ShowDialog();
         }
+
+
     }
 }

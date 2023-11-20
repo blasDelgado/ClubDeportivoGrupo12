@@ -39,7 +39,7 @@ namespace ClubDeportivo.Datos
                 ";password=" + this.clave +
                 ";Database=" + this.baseDatos;
             }
-            catch (Exception ex)
+            catch 
             {
                 cadena = null;
                 throw;

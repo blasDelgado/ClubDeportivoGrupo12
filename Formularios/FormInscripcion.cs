@@ -25,7 +25,7 @@ namespace ClubDeportivo
         private void btnMenuPpal_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form buscarClienteForm = Application.OpenForms["BuscarCliente"];
+            Form? buscarClienteForm = Application.OpenForms["BuscarCliente"];
 
             if (buscarClienteForm != null)
             {

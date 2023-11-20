@@ -24,3 +24,20 @@ constraint fk_usuario foreign key(RolUsu) references roles(RolUsu)
 
 insert into usuario(CodUsu,NombreUsu,PassUsu,RolUsu) values
 (1,'adm','1234',001);
+
+create table cliente(
+CLIENTE_ID int auto_increment,
+nombre varchar (40),
+apellido varchar (40),
+fec_nacimiento date,
+domicilio varchar (40),
+email varchar (40),
+telefono varchar (20),
+dni long,
+aptoFisicoVigente bool,
+carnet_ID int,
+constraint pk_clienteID primary key(CLIENTE_ID)
+);
+
+insert into cliente(CLIENTE_ID,nombre,apellido,fec_nacimiento,domicilio,email,telefono,dni,aptoFisicoVigente,carnet_ID) values
+(default,'Leo','Messi',19880101,'Siempreviva 123','leo10@gmail.com','10101010',33495009,true,400);

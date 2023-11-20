@@ -12,4 +12,4 @@ end
 //
 
 /*prueba */
-call IngresoLogin('adm', '1234')//
+/*call IngresoLogin('adm', '1234') // */

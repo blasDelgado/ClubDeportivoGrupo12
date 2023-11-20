@@ -34,7 +34,7 @@ namespace ClubDeportivo.Datos
                 return tabla;
                 // de esta forma esta asociado el metodo con el procedure que esta almacenado en MySQL
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

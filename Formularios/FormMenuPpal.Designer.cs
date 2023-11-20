@@ -33,7 +33,7 @@
             ActividadesButton = new Button();
             SalirButton = new Button();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
+            lblRol = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -91,15 +91,15 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblRol
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(736, 41);
-            label1.Name = "label1";
-            label1.Size = new Size(74, 15);
-            label1.TabIndex = 5;
-            label1.Text = "Hola, Admin";
+            lblRol.AutoSize = true;
+            lblRol.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblRol.Location = new Point(736, 41);
+            lblRol.Name = "lblRol";
+            lblRol.Size = new Size(56, 15);
+            lblRol.TabIndex = 5;
+            lblRol.Text = "Hola, Rol";
             // 
             // FormMenuPpal
             // 
@@ -107,7 +107,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(891, 502);
             ControlBox = false;
-            Controls.Add(label1);
+            Controls.Add(lblRol);
             Controls.Add(pictureBox1);
             Controls.Add(SalirButton);
             Controls.Add(ActividadesButton);
@@ -117,6 +117,7 @@
             Name = "FormMenuPpal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu Principal";
+            Load += FormMenuPpal_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -129,6 +130,6 @@
         private Button ActividadesButton;
         private Button SalirButton;
         private PictureBox pictureBox1;
-        private Label label1;
+        private Label lblRol;
     }
 }
