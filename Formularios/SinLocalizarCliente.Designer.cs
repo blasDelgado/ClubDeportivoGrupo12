@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             PreguntaLabel = new Label();
-            MensajeLabel1 = new Label();
             MensajeLabel2 = new Label();
             btnCancelar = new Button();
             btnAceptar = new Button();
@@ -46,26 +45,15 @@
             PreguntaLabel.Text = "¿Desea registrarlo?";
             PreguntaLabel.TextAlign = ContentAlignment.BottomRight;
             // 
-            // MensajeLabel1
-            // 
-            MensajeLabel1.AutoSize = true;
-            MensajeLabel1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            MensajeLabel1.Location = new Point(113, 37);
-            MensajeLabel1.Name = "MensajeLabel1";
-            MensajeLabel1.Size = new Size(69, 20);
-            MensajeLabel1.TabIndex = 11;
-            MensajeLabel1.Text = "El cliente";
-            MensajeLabel1.TextAlign = ContentAlignment.BottomRight;
-            // 
             // MensajeLabel2
             // 
             MensajeLabel2.AutoSize = true;
             MensajeLabel2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            MensajeLabel2.Location = new Point(138, 72);
+            MensajeLabel2.Location = new Point(106, 66);
             MensajeLabel2.Name = "MensajeLabel2";
-            MensajeLabel2.Size = new Size(185, 20);
+            MensajeLabel2.Size = new Size(249, 20);
             MensajeLabel2.TabIndex = 12;
-            MensajeLabel2.Text = "no se encuentra registrado";
+            MensajeLabel2.Text = "El cliente no se encuentra registrado";
             MensajeLabel2.TextAlign = ContentAlignment.BottomRight;
             // 
             // btnCancelar
@@ -99,7 +87,6 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(MensajeLabel2);
-            Controls.Add(MensajeLabel1);
             Controls.Add(PreguntaLabel);
             Name = "SinLocalizarCliente";
             StartPosition = FormStartPosition.CenterScreen;
@@ -111,7 +98,6 @@
         #endregion
 
         private Label PreguntaLabel;
-        private Label MensajeLabel1;
         private Label MensajeLabel2;
         private Button btnCancelar;
         private Button btnAceptar;

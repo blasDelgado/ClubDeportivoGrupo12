@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubDeportivo.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,9 +64,9 @@ namespace ClubDeportivo
 
                 if (dniNum == cliente.getDni())
                 {
-                    ClienteLocalizado clienteLocalizado = new ClienteLocalizado();
-                    clienteLocalizado.cliente = cliente;
-                    clienteLocalizado.Show();
+                    MenuCliente menuCliente = new MenuCliente();
+                    menuCliente.cliente = cliente;
+                    menuCliente.Show();
                 }
                 else
                 {
