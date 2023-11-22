@@ -20,6 +20,7 @@ namespace ClubDeportivo
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Form FormListAct = new ListarActividades();
             FormListAct.ShowDialog();
 
@@ -28,6 +29,7 @@ namespace ClubDeportivo
 
         private void btnActPrecios_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Form FormActualizarAct = new ActualizarActividades();
             FormActualizarAct.ShowDialog();
         }

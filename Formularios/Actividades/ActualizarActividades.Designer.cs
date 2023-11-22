@@ -43,7 +43,6 @@
             // 
             comboBoxActividad.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxActividad.FormattingEnabled = true;
-            comboBoxActividad.Items.AddRange(new object[] { "Mensual", "Semanal", "Diario" });
             comboBoxActividad.Location = new Point(219, 103);
             comboBoxActividad.Name = "comboBoxActividad";
             comboBoxActividad.Size = new Size(200, 23);
@@ -54,7 +53,7 @@
             // 
             comboBoxFrecuencia.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFrecuencia.FormattingEnabled = true;
-            comboBoxFrecuencia.Items.AddRange(new object[] { "Mensual", "Semanal", "Diario" });
+            comboBoxFrecuencia.Items.AddRange(new object[] { "Diario", "Semanal", "Mensual" });
             comboBoxFrecuencia.Location = new Point(219, 144);
             comboBoxFrecuencia.Name = "comboBoxFrecuencia";
             comboBoxFrecuencia.Size = new Size(200, 23);
@@ -154,6 +153,7 @@
             Controls.Add(label3);
             Name = "ActualizarActividades";
             Text = "Actualizar precio";
+            Load += ActualizarActividades_Load;
             ResumeLayout(false);
             PerformLayout();
         }

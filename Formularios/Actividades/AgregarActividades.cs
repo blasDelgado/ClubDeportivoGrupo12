@@ -1,4 +1,5 @@
 ﻿using System;
+using ClubDeportivo.Datos;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,18 +18,13 @@ namespace ClubDeportivo
         {
             InitializeComponent();
             btnAgregar.Enabled = false;
-
         }
 
         private void AgregarActividades_Load(object sender, EventArgs e)
         {
-
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
-
-
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -53,7 +49,9 @@ namespace ClubDeportivo
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            ListarActividades listarActividades = new ListarActividades();
+            listarActividades.Show();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -69,7 +67,19 @@ namespace ClubDeportivo
             if (esLong)
             {
                 precio = numero;
-                Actividad Actividad = new Actividad (nombre, precio, frecuencia);
+                Actividad actividad = new Actividad (nombre, precio, frecuencia);
+                ActividadesDatos sqlCon = new ActividadesDatos();
+                try
+                {
+                    sqlCon.agregarActividad(actividad);
+                    this.Hide();
+                    MessageBox.Show($"Actividad :  {actividad} agregada.");
+                    ListarActividades listarActividades = new ListarActividades();
+                    listarActividades.Show();
+
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); };
+
             }
             else
             {

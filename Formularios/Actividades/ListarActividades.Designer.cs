@@ -30,18 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             dtgvActividades = new DataGridView();
+            actividadBindingSource = new BindingSource(components);
             btnAgregarAct = new Button();
             btnVolver = new Button();
-            actividadBindingSource = new BindingSource(components);
+            actividadBindingSource1 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dtgvActividades).BeginInit();
             ((System.ComponentModel.ISupportInitialize)actividadBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)actividadBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // dtgvActividades
             // 
-            dtgvActividades.AutoGenerateColumns = false;
             dtgvActividades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvActividades.DataSource = actividadBindingSource;
             dtgvActividades.Location = new Point(78, 68);
             dtgvActividades.Name = "dtgvActividades";
             dtgvActividades.RowTemplate.Height = 25;
@@ -49,6 +49,10 @@
             dtgvActividades.TabIndex = 1;
             dtgvActividades.Tag = "Listado Actividades";
             dtgvActividades.CellContentClick += dtgvActividades_CellContentClick;
+            // 
+            // actividadBindingSource
+            // 
+            actividadBindingSource.DataSource = typeof(Actividad);
             // 
             // btnAgregarAct
             // 
@@ -76,9 +80,9 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_click;
             // 
-            // actividadBindingSource
+            // actividadBindingSource1
             // 
-            actividadBindingSource.DataSource = typeof(Actividad);
+            actividadBindingSource1.DataSource = typeof(Actividad);
             // 
             // ListarActividades
             // 
@@ -93,6 +97,7 @@
             Load += ListarActividades_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvActividades).EndInit();
             ((System.ComponentModel.ISupportInitialize)actividadBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)actividadBindingSource1).EndInit();
             ResumeLayout(false);
         }
 
@@ -102,5 +107,6 @@
         private Button btnAgregarAct;
         private Button btnVolver;
         private BindingSource actividadBindingSource;
+        private BindingSource actividadBindingSource1;
     }
 }

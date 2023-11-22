@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ClubDeportivo.Datos;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +15,24 @@ namespace ClubDeportivo
 {
     public partial class ActualizarActividades : Form
     {
+        ActividadesDatos sqlCon = new ActividadesDatos();
         public ActualizarActividades()
         {
             InitializeComponent();
             btnActualizar.Enabled = false;
+
+
+            try
+            {
+                MySqlDataReader lector = sqlCon.listarActividades();
+                while (lector.Read())
+                {
+                    comboBoxActividad.Items.Add(lector.GetString(1));
+                }
+                lector.Close();
+            }
+
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -25,7 +42,9 @@ namespace ClubDeportivo
 
         private void btnCancelar_click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            Form FormHome = new ActividadesHome();
+            FormHome.ShowDialog();
         }
 
         private void btnActualizar_click(object sender, EventArgs e)
@@ -39,7 +58,16 @@ namespace ClubDeportivo
             if (esLong)
             {
                 precio = numero;
-                Actividad Actividad = new Actividad (actividad, precio, frecuencia);
+                Actividad act = new Actividad(actividad, precio, frecuencia);
+                try
+                {
+                    sqlCon.actualizarActividad(act);
+                    txtBoxPrecio.Text = "";
+                    MessageBox.Show($"Actividad :  {actividad} actualizada.");
+                    
+                   
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); };
             }
             else
             {
@@ -51,8 +79,7 @@ namespace ClubDeportivo
 
         private void comboBox_change(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(comboBoxFrecuencia.Text) && !string.IsNullOrEmpty(comboBoxActividad.Text) && !string.IsNullOrEmpty(txtBoxPrecio.Text))
-            { btnActualizar.Enabled = true; }
+
         }
 
         private void comboBoxFrecuencia_change(object sender, EventArgs e)
@@ -65,6 +92,11 @@ namespace ClubDeportivo
         {
             if (!string.IsNullOrEmpty(comboBoxFrecuencia.Text) && !string.IsNullOrEmpty(comboBoxActividad.Text) && !string.IsNullOrEmpty(txtBoxPrecio.Text))
             { btnActualizar.Enabled = true; }
+        }
+
+        private void ActualizarActividades_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
