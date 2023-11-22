@@ -39,5 +39,15 @@ carnet_ID int,
 constraint pk_clienteID primary key(CLIENTE_ID)
 );
 
+create table actividad(
+ACTIVIDAD_ID int auto_increment,
+nombre varchar (40),
+frecuencia varchar (40),
+precio long,
+constraint pk_actividadID primary key(ACTIVIDAD_ID)
+);
+
 insert into cliente(CLIENTE_ID,nombre,apellido,fec_nacimiento,domicilio,email,telefono,dni,aptoFisicoVigente,carnet_ID) values
 (default,'Leo','Messi',19880101,'Siempreviva 123','leo10@gmail.com','10101010',33495009,true,400);
+
+insert into actividad(ACTIVIDAD_ID, nombre , frecuencia , precio) values (default , "futbol" , "semanal" , 20000),(default , "handball" , "mensual" , 30000);
