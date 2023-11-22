@@ -50,6 +50,7 @@
             ActualizarButton.TabIndex = 1;
             ActualizarButton.Text = "Actualizar Datos";
             ActualizarButton.UseVisualStyleBackColor = false;
+            ActualizarButton.Click += ActualizarButton_Click;
             // 
             // AsociarButton
             // 

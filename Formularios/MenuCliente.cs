@@ -36,5 +36,12 @@ namespace ClubDeportivo.Formularios
         {
             lblCliente.Text = cliente.getNombre() + " " + cliente.getApellido();
         }
+
+        private void ActualizarButton_Click(object sender, EventArgs e)
+        {
+            ActualizarCliente actualizarCliente = new ActualizarCliente();
+            actualizarCliente.cliente = cliente;
+            actualizarCliente.Show();
+        }
     }
 }

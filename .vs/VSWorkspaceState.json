@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Datos",
     "\\Formularios",
     "\\src",
     "\\src\\clases",
     "\\src\\enum"
   ],
-  "SelectedNode": "\\Formularios\\FormMenuPpal.cs",
+  "SelectedNode": "\\Properties",
   "PreviewInSolutionExplorer": false
 }

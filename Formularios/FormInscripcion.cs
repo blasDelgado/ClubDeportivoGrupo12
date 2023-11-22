@@ -53,7 +53,7 @@ namespace ClubDeportivo
 
             validarDatos(nombre, apellido, dniText, domicilio, email, telefono);
 
-            if (string.IsNullOrEmpty(dniText) || !EsNumero(dniText) || string.IsNullOrEmpty(telefono) || !EsNumero(dniText))
+            if (string.IsNullOrEmpty(dniText) || !EsNumero(dniText) || string.IsNullOrEmpty(telefono) || !EsNumero(telefono))
             {
                 lblMensaje2.Visible = true;
             }

@@ -143,7 +143,45 @@ namespace ClubDeportivo.Datos
             return count > 0;
         }
 
+        public void ActualizarCliente(Cliente cliente)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
 
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                if (ClienteExiste(cliente.getDni(), sqlCon))
+                {
+                    MySqlCommand cmd = new MySqlCommand("ActualizarCliente", sqlCon);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("pDni", MySqlDbType.Int64).Value = cliente.getDni();
+                    cmd.Parameters.Add("pDomicilio", MySqlDbType.VarChar, 40).Value = cliente.getDomicilio();
+                    cmd.Parameters.Add("pEmail", MySqlDbType.VarChar, 40).Value = cliente.getEmail();
+                    cmd.Parameters.Add("pTelefono", MySqlDbType.VarChar, 20).Value = cliente.getTelefono();
+
+                    sqlCon.Open();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Cliente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no se encuentra registrado en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar el cliente: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
 
     }
 }
