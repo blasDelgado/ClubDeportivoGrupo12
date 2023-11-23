@@ -25,7 +25,7 @@ namespace ClubDeportivo
             FormListAct.ShowDialog();
 
         }
-       
+
 
         private void btnActPrecios_Click(object sender, EventArgs e)
         {

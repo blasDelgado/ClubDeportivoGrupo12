@@ -152,6 +152,7 @@
             Controls.Add(comboBoxActividad);
             Controls.Add(label3);
             Name = "ActualizarActividades";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Actualizar precio";
             Load += ActualizarActividades_Load;
             ResumeLayout(false);

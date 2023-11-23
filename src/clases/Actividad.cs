@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubDeportivo.Entidades
-{
+
+
     public class Actividad
     {
 
@@ -60,4 +60,4 @@ namespace ClubDeportivo.Entidades
 
 
     }
-}
+

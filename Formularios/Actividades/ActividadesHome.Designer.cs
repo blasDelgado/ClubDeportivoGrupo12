@@ -62,6 +62,7 @@
             Controls.Add(btnActPrecios);
             Controls.Add(btnListAct);
             Name = "ActividadesHome";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ActividadesHome";
             ResumeLayout(false);
         }

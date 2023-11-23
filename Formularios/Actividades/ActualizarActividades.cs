@@ -1,4 +1,5 @@
 ﻿using ClubDeportivo.Datos;
+using ClubDeportivo.Entidades;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
@@ -64,8 +65,8 @@ namespace ClubDeportivo
                     sqlCon.actualizarActividad(act);
                     txtBoxPrecio.Text = "";
                     MessageBox.Show($"Actividad :  {actividad} actualizada.");
-                    
-                   
+
+
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); };
             }

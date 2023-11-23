@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClubDeportivo.Entidades;
+using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;

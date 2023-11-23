@@ -140,6 +140,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "AgregarActividades";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Actividad";
             Load += AgregarActividades_Load;
             ResumeLayout(false);

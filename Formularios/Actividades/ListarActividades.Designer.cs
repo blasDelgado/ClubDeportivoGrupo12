@@ -1,4 +1,6 @@
-﻿namespace ClubDeportivo
+﻿using ClubDeportivo.Entidades;
+
+namespace ClubDeportivo
 {
     partial class ListarActividades
     {
@@ -93,6 +95,7 @@
             Controls.Add(btnAgregarAct);
             Controls.Add(dtgvActividades);
             Name = "ListarActividades";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Listado Actividades";
             Load += ListarActividades_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvActividades).EndInit();

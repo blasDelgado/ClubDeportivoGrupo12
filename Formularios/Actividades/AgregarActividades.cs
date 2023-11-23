@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ClubDeportivo.Entidades;
 
 namespace ClubDeportivo
 {
@@ -67,7 +68,7 @@ namespace ClubDeportivo
             if (esLong)
             {
                 precio = numero;
-                Actividad actividad = new Actividad (nombre, precio, frecuencia);
+                Actividad actividad = new Actividad(nombre, precio, frecuencia);
                 ActividadesDatos sqlCon = new ActividadesDatos();
                 try
                 {
@@ -86,7 +87,7 @@ namespace ClubDeportivo
                 System.Windows.Forms.MessageBox.Show("Ingrese un precio válido", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 btnAgregar.Enabled = false;
             }
-            
+
         }
 
         private void txtBoxNombre_ModifiedChanged(object sender, EventArgs e)
