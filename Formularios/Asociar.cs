@@ -62,11 +62,6 @@ namespace ClubDeportivo.Formularios
             DateTime fechaHoy = DateTime.Today;
             DateTime fechaVencimiento = new DateTime(fechaHoy.Year, fechaHoy.Month, 10).AddMonths(1);
 
-            if (fechaHoy.Day >= 10)
-            {
-                fechaVencimiento = fechaVencimiento.AddMonths(1);
-            }
-
             if (actividad != null)
             {
                 try
