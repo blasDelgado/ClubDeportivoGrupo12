@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubDeportivo.Formularios.Clientes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,12 @@ namespace ClubDeportivo
         {
             BuscarCliente buscarCliente = new BuscarCliente();
             buscarCliente.ShowDialog();
+        }
+
+        private void ClientesButton_Click(object sender, EventArgs e)
+        {
+            ClienteHome clienteHome = new ClienteHome();
+            clienteHome.ShowDialog();
         }
 
         private void ActividadesButton_Click(object sender, EventArgs e)

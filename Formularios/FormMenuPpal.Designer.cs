@@ -59,6 +59,7 @@
             ClientesButton.TabIndex = 1;
             ClientesButton.Text = "Clientes";
             ClientesButton.UseVisualStyleBackColor = false;
+            ClientesButton.Click += ClientesButton_Click;
             // 
             // ActividadesButton
             // 
@@ -98,13 +99,13 @@
             lblRol.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblRol.Location = new Point(736, 41);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(56, 15);
+            lblRol.Size = new Size(72, 20);
             lblRol.TabIndex = 5;
             lblRol.Text = "Hola, Rol";
             // 
             // FormMenuPpal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(891, 502);
             ControlBox = false;

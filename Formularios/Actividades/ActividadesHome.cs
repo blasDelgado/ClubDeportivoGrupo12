@@ -33,5 +33,10 @@ namespace ClubDeportivo
             Form FormActualizarAct = new ActualizarActividades();
             FormActualizarAct.ShowDialog();
         }
+
+        private void ActividadesHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
