@@ -35,9 +35,10 @@
             // btnListAct
             // 
             btnListAct.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnListAct.Location = new Point(75, 99);
+            btnListAct.Location = new Point(86, 132);
+            btnListAct.Margin = new Padding(3, 4, 3, 4);
             btnListAct.Name = "btnListAct";
-            btnListAct.Size = new Size(304, 61);
+            btnListAct.Size = new Size(347, 81);
             btnListAct.TabIndex = 0;
             btnListAct.Text = "Ver actividades vigentes";
             btnListAct.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // btnActPrecios
             // 
             btnActPrecios.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActPrecios.Location = new Point(75, 198);
+            btnActPrecios.Location = new Point(86, 264);
+            btnActPrecios.Margin = new Padding(3, 4, 3, 4);
             btnActPrecios.Name = "btnActPrecios";
-            btnActPrecios.Size = new Size(304, 61);
+            btnActPrecios.Size = new Size(347, 81);
             btnActPrecios.TabIndex = 1;
             btnActPrecios.Text = "Actualizar precios";
             btnActPrecios.UseVisualStyleBackColor = true;
@@ -56,14 +58,16 @@
             // 
             // ActividadesHome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(459, 341);
+            ClientSize = new Size(525, 455);
             Controls.Add(btnActPrecios);
             Controls.Add(btnListAct);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ActividadesHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ActividadesHome";
+            Load += ActividadesHome_Load;
             ResumeLayout(false);
         }
 
