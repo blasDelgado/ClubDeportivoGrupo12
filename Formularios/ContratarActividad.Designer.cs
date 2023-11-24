@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             lblActividad = new Label();
-            cboActvidad = new ComboBox();
+            cboActividad = new ComboBox();
             btnCancelar = new Button();
             btnContratar = new Button();
             SuspendLayout();
@@ -44,14 +44,14 @@
             lblActividad.TabIndex = 1;
             lblActividad.Text = "Actividad";
             // 
-            // cboActvidad
+            // cboActividad
             // 
-            cboActvidad.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboActvidad.FormattingEnabled = true;
-            cboActvidad.Location = new Point(172, 93);
-            cboActvidad.Name = "cboActvidad";
-            cboActvidad.Size = new Size(134, 23);
-            cboActvidad.TabIndex = 2;
+            cboActividad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboActividad.FormattingEnabled = true;
+            cboActividad.Location = new Point(172, 93);
+            cboActividad.Name = "cboActividad";
+            cboActividad.Size = new Size(134, 23);
+            cboActividad.TabIndex = 2;
             // 
             // btnCancelar
             // 
@@ -79,7 +79,7 @@
             ClientSize = new Size(409, 277);
             Controls.Add(btnContratar);
             Controls.Add(btnCancelar);
-            Controls.Add(cboActvidad);
+            Controls.Add(cboActividad);
             Controls.Add(lblActividad);
             Name = "ContratarActividad";
             StartPosition = FormStartPosition.CenterScreen;
@@ -90,7 +90,7 @@
 
         #endregion
         private Label lblActividad;
-        private ComboBox cboActvidad;
+        private ComboBox cboActividad;
         private Button btnCancelar;
         private Button btnContratar;
     }
