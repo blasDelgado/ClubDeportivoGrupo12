@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Formularios\BuscarCliente.cs">
+    <Compile Update="Formularios\ActualizarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Formularios\ClienteLocalizado.cs">
+    <Compile Update="Formularios\BuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\FormInscripcion.cs">
@@ -14,6 +14,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\FormMenuPpal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\MenuCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\SinLocalizarCliente.cs">

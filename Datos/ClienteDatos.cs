@@ -79,6 +79,109 @@ namespace ClubDeportivo.Datos
         }
 
 
+        public void GuardarNuevoCliente(Cliente nuevoCliente)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                // instanciar conexión
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                // Verificar si el cliente ya existe en la base de datos
+                if (!ClienteExiste(nuevoCliente.getDni(), sqlCon))
+                {
+                    // crear comando de tipo stored procedure
+                    MySqlCommand cmd = new MySqlCommand("GuardarNuevoCliente", sqlCon);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    // agregar parámetros IN
+                    cmd.Parameters.Add("pNombre", MySqlDbType.VarChar, 40).Value = nuevoCliente.getNombre();
+                    cmd.Parameters.Add("pApellido", MySqlDbType.VarChar, 40).Value = nuevoCliente.getApellido();
+                    cmd.Parameters.Add("pFec_nacimiento", MySqlDbType.Date).Value = nuevoCliente.getFec_nacimiento();
+                    cmd.Parameters.Add("pDomicilio", MySqlDbType.VarChar, 40).Value = nuevoCliente.getDomicilio();
+                    cmd.Parameters.Add("pEmail", MySqlDbType.VarChar, 40).Value = nuevoCliente.getEmail();
+                    cmd.Parameters.Add("pTelefono", MySqlDbType.VarChar, 20).Value = nuevoCliente.getTelefono();
+                    cmd.Parameters.Add("pDni", MySqlDbType.Int64).Value = nuevoCliente.getDni();
+                    cmd.Parameters.Add("pAptoFisicoVigente", MySqlDbType.Bit).Value = nuevoCliente.getAptoFisicoVigente();
+                    cmd.Parameters.Add("pCarnet_ID", MySqlDbType.Int32).Value = nuevoCliente.getCarnet_ID();
+
+                    // conectar y ejecutar el stored procedure
+                    sqlCon.Open();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Cliente guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // El cliente ya existe
+                    MessageBox.Show("El cliente ya se encuentra registrado en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción (por ejemplo, registrar en un archivo de registro)
+                Console.WriteLine($"Error al guardar el nuevo cliente: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
+
+        private bool ClienteExiste(long dni, MySqlConnection connection)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM Cliente WHERE Dni = @Dni", connection);
+            cmd.Parameters.Add("@Dni", MySqlDbType.Int64).Value = dni;
+
+            connection.Open();
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            connection.Close();
+
+            return count > 0;
+        }
+
+        public void ActualizarCliente(Cliente cliente)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                if (ClienteExiste(cliente.getDni(), sqlCon))
+                {
+                    MySqlCommand cmd = new MySqlCommand("ActualizarCliente", sqlCon);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("pDni", MySqlDbType.Int64).Value = cliente.getDni();
+                    cmd.Parameters.Add("pDomicilio", MySqlDbType.VarChar, 40).Value = cliente.getDomicilio();
+                    cmd.Parameters.Add("pEmail", MySqlDbType.VarChar, 40).Value = cliente.getEmail();
+                    cmd.Parameters.Add("pTelefono", MySqlDbType.VarChar, 20).Value = cliente.getTelefono();
+
+                    sqlCon.Open();
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Cliente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no se encuentra registrado en la base de datos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar el cliente: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
 
     }
 }

@@ -36,18 +36,26 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            UsuarioTextBox = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            txtNombre = new TextBox();
+            txtApellido = new TextBox();
+            txtDni = new TextBox();
+            txtDomicilio = new TextBox();
+            txtEmail = new TextBox();
+            txtTelefono = new TextBox();
+            dateTimePickerFechaNacimiento = new DateTimePicker();
+            dateTimePickerFechaAptoFisico = new DateTimePicker();
             btnAceptar = new Button();
             btnCancelar = new Button();
             btnLimpiar = new Button();
             btnMenuPpal = new Button();
+            lblAsterisco1 = new Label();
+            lblAsterisco2 = new Label();
+            lblAsterisco3 = new Label();
+            lblAsterisco4 = new Label();
+            lblAsterisco5 = new Label();
+            lblAsterisco6 = new Label();
+            lblMensaje1 = new Label();
+            lblMensaje2 = new Label();
             SuspendLayout();
             // 
             // UsuarioLabel
@@ -138,77 +146,83 @@
             label7.Text = "Fecha Apto Fisico*";
             label7.TextAlign = ContentAlignment.BottomRight;
             // 
-            // UsuarioTextBox
+            // txtNombre
             // 
-            UsuarioTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            UsuarioTextBox.ForeColor = SystemColors.WindowText;
-            UsuarioTextBox.Location = new Point(191, 129);
-            UsuarioTextBox.Name = "UsuarioTextBox";
-            UsuarioTextBox.Size = new Size(229, 29);
-            UsuarioTextBox.TabIndex = 9;
+            txtNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombre.ForeColor = SystemColors.WindowText;
+            txtNombre.Location = new Point(191, 129);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(229, 29);
+            txtNombre.TabIndex = 9;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
-            // textBox1
+            // txtApellido
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = SystemColors.WindowText;
-            textBox1.Location = new Point(191, 174);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(229, 29);
-            textBox1.TabIndex = 10;
+            txtApellido.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellido.ForeColor = SystemColors.WindowText;
+            txtApellido.Location = new Point(191, 174);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(229, 29);
+            txtApellido.TabIndex = 10;
+            txtApellido.TextChanged += txtApellido_TextChanged;
             // 
-            // textBox2
+            // txtDni
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.ForeColor = SystemColors.WindowText;
-            textBox2.Location = new Point(191, 222);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(229, 29);
-            textBox2.TabIndex = 11;
+            txtDni.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDni.ForeColor = SystemColors.WindowText;
+            txtDni.Location = new Point(191, 222);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(229, 29);
+            txtDni.TabIndex = 11;
+            txtDni.TextChanged += txtDni_TextChanged;
             // 
-            // textBox3
+            // txtDomicilio
             // 
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.ForeColor = SystemColors.WindowText;
-            textBox3.Location = new Point(575, 129);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(229, 29);
-            textBox3.TabIndex = 12;
+            txtDomicilio.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDomicilio.ForeColor = SystemColors.WindowText;
+            txtDomicilio.Location = new Point(575, 129);
+            txtDomicilio.Name = "txtDomicilio";
+            txtDomicilio.Size = new Size(229, 29);
+            txtDomicilio.TabIndex = 12;
+            txtDomicilio.TextChanged += txtDomicilio_TextChanged;
             // 
-            // textBox4
+            // txtEmail
             // 
-            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.ForeColor = SystemColors.WindowText;
-            textBox4.Location = new Point(575, 174);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(229, 29);
-            textBox4.TabIndex = 13;
+            txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.ForeColor = SystemColors.WindowText;
+            txtEmail.Location = new Point(575, 174);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(229, 29);
+            txtEmail.TabIndex = 13;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
-            // textBox5
+            // txtTelefono
             // 
-            textBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.ForeColor = SystemColors.WindowText;
-            textBox5.Location = new Point(575, 222);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(229, 29);
-            textBox5.TabIndex = 14;
+            txtTelefono.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefono.ForeColor = SystemColors.WindowText;
+            txtTelefono.Location = new Point(575, 222);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(229, 29);
+            txtTelefono.TabIndex = 14;
+            txtTelefono.TextChanged += txtTelefono_TextChanged;
             // 
-            // dateTimePicker1
+            // dateTimePickerFechaNacimiento
             // 
-            dateTimePicker1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(242, 270);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(178, 27);
-            dateTimePicker1.TabIndex = 15;
+            dateTimePickerFechaNacimiento.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerFechaNacimiento.Format = DateTimePickerFormat.Short;
+            dateTimePickerFechaNacimiento.Location = new Point(242, 270);
+            dateTimePickerFechaNacimiento.Name = "dateTimePickerFechaNacimiento";
+            dateTimePickerFechaNacimiento.Size = new Size(178, 27);
+            dateTimePickerFechaNacimiento.TabIndex = 15;
             // 
-            // dateTimePicker2
+            // dateTimePickerFechaAptoFisico
             // 
-            dateTimePicker2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(626, 270);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(178, 27);
-            dateTimePicker2.TabIndex = 16;
+            dateTimePickerFechaAptoFisico.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerFechaAptoFisico.Format = DateTimePickerFormat.Short;
+            dateTimePickerFechaAptoFisico.Location = new Point(626, 270);
+            dateTimePickerFechaAptoFisico.Name = "dateTimePickerFechaAptoFisico";
+            dateTimePickerFechaAptoFisico.Size = new Size(178, 27);
+            dateTimePickerFechaAptoFisico.TabIndex = 16;
             // 
             // btnAceptar
             // 
@@ -219,6 +233,7 @@
             btnAceptar.TabIndex = 17;
             btnAceptar.Text = "ACEPTAR";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -240,6 +255,7 @@
             btnLimpiar.TabIndex = 19;
             btnLimpiar.Text = "LIMPIAR";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnMenuPpal
             // 
@@ -252,23 +268,126 @@
             btnMenuPpal.UseVisualStyleBackColor = true;
             btnMenuPpal.Click += btnMenuPpal_Click;
             // 
+            // lblAsterisco1
+            // 
+            lblAsterisco1.AutoSize = true;
+            lblAsterisco1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAsterisco1.ForeColor = Color.Red;
+            lblAsterisco1.Location = new Point(426, 133);
+            lblAsterisco1.Name = "lblAsterisco1";
+            lblAsterisco1.Size = new Size(21, 25);
+            lblAsterisco1.TabIndex = 21;
+            lblAsterisco1.Text = "*";
+            lblAsterisco1.Visible = false;
+            // 
+            // lblAsterisco2
+            // 
+            lblAsterisco2.AutoSize = true;
+            lblAsterisco2.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAsterisco2.ForeColor = Color.Red;
+            lblAsterisco2.Location = new Point(426, 174);
+            lblAsterisco2.Name = "lblAsterisco2";
+            lblAsterisco2.Size = new Size(21, 25);
+            lblAsterisco2.TabIndex = 22;
+            lblAsterisco2.Text = "*";
+            lblAsterisco2.Visible = false;
+            // 
+            // lblAsterisco3
+            // 
+            lblAsterisco3.AutoSize = true;
+            lblAsterisco3.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAsterisco3.ForeColor = Color.Red;
+            lblAsterisco3.Location = new Point(426, 222);
+            lblAsterisco3.Name = "lblAsterisco3";
+            lblAsterisco3.Size = new Size(21, 25);
+            lblAsterisco3.TabIndex = 23;
+            lblAsterisco3.Text = "*";
+            lblAsterisco3.Visible = false;
+            // 
+            // lblAsterisco4
+            // 
+            lblAsterisco4.AutoSize = true;
+            lblAsterisco4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAsterisco4.ForeColor = Color.Red;
+            lblAsterisco4.Location = new Point(810, 129);
+            lblAsterisco4.Name = "lblAsterisco4";
+            lblAsterisco4.Size = new Size(21, 25);
+            lblAsterisco4.TabIndex = 24;
+            lblAsterisco4.Text = "*";
+            lblAsterisco4.Visible = false;
+            // 
+            // lblAsterisco5
+            // 
+            lblAsterisco5.AutoSize = true;
+            lblAsterisco5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAsterisco5.ForeColor = Color.Red;
+            lblAsterisco5.Location = new Point(810, 178);
+            lblAsterisco5.Name = "lblAsterisco5";
+            lblAsterisco5.Size = new Size(21, 25);
+            lblAsterisco5.TabIndex = 25;
+            lblAsterisco5.Text = "*";
+            lblAsterisco5.Visible = false;
+            // 
+            // lblAsterisco6
+            // 
+            lblAsterisco6.AutoSize = true;
+            lblAsterisco6.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAsterisco6.ForeColor = Color.Red;
+            lblAsterisco6.Location = new Point(810, 226);
+            lblAsterisco6.Name = "lblAsterisco6";
+            lblAsterisco6.Size = new Size(21, 25);
+            lblAsterisco6.TabIndex = 26;
+            lblAsterisco6.Text = "*";
+            lblAsterisco6.Visible = false;
+            // 
+            // lblMensaje1
+            // 
+            lblMensaje1.AutoSize = true;
+            lblMensaje1.ForeColor = Color.Red;
+            lblMensaje1.Location = new Point(93, 325);
+            lblMensaje1.Name = "lblMensaje1";
+            lblMensaje1.Size = new Size(170, 21);
+            lblMensaje1.TabIndex = 27;
+            lblMensaje1.Text = "Estos campos son obligatorios";
+            lblMensaje1.UseCompatibleTextRendering = true;
+            lblMensaje1.Visible = false;
+            // 
+            // lblMensaje2
+            // 
+            lblMensaje2.AutoSize = true;
+            lblMensaje2.ForeColor = SystemColors.Highlight;
+            lblMensaje2.Location = new Point(447, 325);
+            lblMensaje2.Name = "lblMensaje2";
+            lblMensaje2.Size = new Size(357, 15);
+            lblMensaje2.TabIndex = 28;
+            lblMensaje2.Text = "Formato inválido, el DNI y el telefono debe contener solo números";
+            lblMensaje2.Visible = false;
+            // 
             // FormInscripcion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(891, 502);
+            Controls.Add(lblMensaje2);
+            Controls.Add(lblMensaje1);
+            Controls.Add(lblAsterisco6);
+            Controls.Add(lblAsterisco5);
+            Controls.Add(lblAsterisco4);
+            Controls.Add(lblAsterisco3);
+            Controls.Add(lblAsterisco2);
+            Controls.Add(lblAsterisco1);
             Controls.Add(btnMenuPpal);
             Controls.Add(btnLimpiar);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(UsuarioTextBox);
+            Controls.Add(dateTimePickerFechaAptoFisico);
+            Controls.Add(dateTimePickerFechaNacimiento);
+            Controls.Add(txtTelefono);
+            Controls.Add(txtEmail);
+            Controls.Add(txtDomicilio);
+            Controls.Add(txtDni);
+            Controls.Add(txtApellido);
+            Controls.Add(txtNombre);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -294,17 +413,25 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private TextBox UsuarioTextBox;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private TextBox txtNombre;
+        private TextBox txtApellido;
+        private TextBox txtDni;
+        private TextBox txtDomicilio;
+        private TextBox txtEmail;
+        private TextBox txtTelefono;
+        private DateTimePicker dateTimePickerFechaNacimiento;
+        private DateTimePicker dateTimePickerFechaAptoFisico;
         private Button btnAceptar;
         private Button btnCancelar;
         private Button btnLimpiar;
         private Button btnMenuPpal;
+        private Label lblAsterisco1;
+        private Label lblAsterisco2;
+        private Label lblAsterisco3;
+        private Label lblAsterisco4;
+        private Label lblAsterisco5;
+        private Label lblAsterisco6;
+        private Label lblMensaje1;
+        private Label lblMensaje2;
     }
 }
