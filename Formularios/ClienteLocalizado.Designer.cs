@@ -82,7 +82,6 @@
             UsuarioLabel.TabIndex = 9;
             UsuarioLabel.Text = "Nombre y Apellido";
             UsuarioLabel.TextAlign = ContentAlignment.BottomRight;
-            UsuarioLabel.Click += UsuarioLabel_Click;
             // 
             // btnActualizarDatos
             // 

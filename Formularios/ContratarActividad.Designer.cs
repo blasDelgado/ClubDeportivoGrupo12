@@ -71,6 +71,7 @@
             btnContratar.TabIndex = 4;
             btnContratar.Text = "Contratar";
             btnContratar.UseVisualStyleBackColor = true;
+            btnContratar.Click += btnContratar_Click;
             // 
             // ContratarActividad
             // 
