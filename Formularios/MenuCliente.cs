@@ -43,5 +43,11 @@ namespace ClubDeportivo.Formularios
             actualizarCliente.cliente = cliente;
             actualizarCliente.Show();
         }
+
+        private void ContratarButton_Click(object sender, EventArgs e)
+        {
+            ContratarActividad contratarActividad = new ContratarActividad();
+            contratarActividad.Show();
+        }
     }
 }

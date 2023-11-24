@@ -73,6 +73,7 @@
             ContratarButton.TabIndex = 3;
             ContratarButton.Text = "Contratar Actividades";
             ContratarButton.UseVisualStyleBackColor = false;
+            ContratarButton.Click += ContratarButton_Click;
             // 
             // CobrarButton
             // 
