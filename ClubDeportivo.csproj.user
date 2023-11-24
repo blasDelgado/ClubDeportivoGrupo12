@@ -16,6 +16,9 @@
     <Compile Update="Formularios\FormMenuPpal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\PrintCarnet.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\SinLocalizarCliente.cs">
       <SubType>Form</SubType>
     </Compile>

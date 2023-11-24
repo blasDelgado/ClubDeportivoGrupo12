@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubDeportivo.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,13 @@ namespace ClubDeportivo
         private void btnActualizarDatos_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnImprimirCarnet_Click(object sender, EventArgs e)
+        {
+            PrintCarnet formCarnet = new PrintCarnet(this.cliente.getDni());
+
+            formCarnet.Show();
         }
     }
 }

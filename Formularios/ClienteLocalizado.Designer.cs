@@ -82,6 +82,7 @@
             UsuarioLabel.TabIndex = 9;
             UsuarioLabel.Text = "Nombre y Apellido";
             UsuarioLabel.TextAlign = ContentAlignment.BottomRight;
+            UsuarioLabel.Click += UsuarioLabel_Click;
             // 
             // btnActualizarDatos
             // 
@@ -133,6 +134,7 @@
             btnImprimirCarnet.TabIndex = 14;
             btnImprimirCarnet.Text = "Imprimir Carnet";
             btnImprimirCarnet.UseVisualStyleBackColor = true;
+            btnImprimirCarnet.Click += btnImprimirCarnet_Click;
             // 
             // ClienteLocalizado
             // 
