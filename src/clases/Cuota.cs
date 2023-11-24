@@ -27,6 +27,14 @@ public class Cuota
         this.fechaDeVencimiento = fechaDeVencimiento;
     }
 
+    public Cuota(TipoDeCuotaEnum cuota, float importe, DateTime fechaDeEmision, DateTime fechaDeVencimiento)
+    {
+        this.cuota = cuota;
+        this.importe = importe;
+        this.fechaDeEmision = fechaDeEmision;
+        this.fechaDeVencimiento = fechaDeVencimiento;
+    }
+
     //Getter y Setter
     public long getCuota_id()
     {

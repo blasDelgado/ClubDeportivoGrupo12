@@ -62,6 +62,7 @@
             AsociarButton.TabIndex = 2;
             AsociarButton.Text = "Asociar";
             AsociarButton.UseVisualStyleBackColor = false;
+            AsociarButton.Click += AsociarButton_Click;
             // 
             // ContratarButton
             // 

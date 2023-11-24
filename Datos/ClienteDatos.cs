@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClubDeportivo.Entidades;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -10,6 +11,8 @@ namespace ClubDeportivo.Datos
 {
     internal class ClienteDatos
     {
+
+        CuotaDatos cuotaDatos = new CuotaDatos();
         public Cliente IdentificarCliente(long dni)
         {
             Cliente? cli = null;
@@ -181,6 +184,56 @@ namespace ClubDeportivo.Datos
                 if (sqlCon.State == System.Data.ConnectionState.Open)
                     sqlCon.Close();
             }
+        }
+
+        public void AsociarCliente(long clienteID, float precioActividad, DateTime fechaHoy, DateTime fechaVencimiento)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                if (ClienteYaAsociado(clienteID, sqlCon))
+                {
+                    MessageBox.Show("Error: El cliente ya se encuentra asociado con anterioridad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // No es necesario lanzar una excepción aquí, simplemente salimos del método.
+                }
+
+                MySqlCommand cmd = new MySqlCommand("AsociarCliente", sqlCon);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("pClienteID", MySqlDbType.Int64).Value = clienteID;
+                cmd.Parameters.Add("pFechaAlta", MySqlDbType.Date).Value = DateTime.Now;
+
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente asociado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cuotaDatos.GenerarCuota(clienteID, TipoDeCuotaEnum.MENSUAL.ToString(), precioActividad, fechaHoy, fechaVencimiento);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al asociar el cliente: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
+
+        private bool ClienteYaAsociado(long clienteID, MySqlConnection connection)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM socio WHERE Cliente_ID = @ClienteID", connection);
+            cmd.Parameters.Add("@ClienteID", MySqlDbType.Int64).Value = clienteID;
+
+            connection.Open();
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            connection.Close();
+
+            return count > 0;
         }
 
     }

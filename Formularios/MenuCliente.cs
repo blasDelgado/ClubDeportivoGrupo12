@@ -49,5 +49,12 @@ namespace ClubDeportivo.Formularios
             ContratarActividad contratarActividad = new ContratarActividad();
             contratarActividad.Show();
         }
+
+        private void AsociarButton_Click(object sender, EventArgs e)
+        {
+            Asociar asociar = new Asociar();
+            asociar.cliente = cliente;
+            asociar.Show();
+        }
     }
 }
