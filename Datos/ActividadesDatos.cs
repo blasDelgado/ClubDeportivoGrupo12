@@ -54,5 +54,47 @@ namespace ClubDeportivo.Datos
             sqlCon.Close();
         }
 
+        public Actividad BuscarActividadPorNombre(string nombreActividad)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                string query = "SELECT nombre, precio, frecuencia FROM actividad WHERE nombre = @pNombreActividad";
+
+                MySqlCommand cmd = new MySqlCommand(query, sqlCon);
+                cmd.Parameters.Add("@pNombreActividad", MySqlDbType.VarChar, 40).Value = nombreActividad;
+
+                sqlCon.Open();
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new Actividad(
+                            reader.GetString("nombre"),
+                            reader.GetFloat("precio"),
+                            reader.GetString("frecuencia")
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al buscar la actividad por nombre: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+
+            return null;
+        }
+
+
     }
 }
