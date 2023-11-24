@@ -37,6 +37,10 @@ namespace ClubDeportivo
             buscarCliente.ShowDialog();
         }
 
-
+        private void ActividadesButton_Click(object sender, EventArgs e)
+        {
+            ActividadesHome actividadesHome = new ActividadesHome();
+            actividadesHome.ShowDialog();
+        }
     }
 }

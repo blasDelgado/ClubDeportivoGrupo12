@@ -70,6 +70,7 @@
             ActividadesButton.TabIndex = 2;
             ActividadesButton.Text = "Actividades";
             ActividadesButton.UseVisualStyleBackColor = false;
+            ActividadesButton.Click += ActividadesButton_Click;
             // 
             // SalirButton
             // 
