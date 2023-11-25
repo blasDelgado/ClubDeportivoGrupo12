@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubDeportivo.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace ClubDeportivo.Formularios
 {
     public partial class MenuCliente : Form
     {
+        private CuotaDatos cuotaDatos;
         public MenuCliente()
         {
             InitializeComponent();
+            cuotaDatos = new CuotaDatos();
         }
 
 
@@ -55,6 +58,24 @@ namespace ClubDeportivo.Formularios
             Asociar asociar = new Asociar();
             asociar.cliente = cliente;
             asociar.Show();
+        }
+
+        private void CobrarButton_Click(object sender, EventArgs e)
+        {
+            List<Cuota> cuotasPendientes = cuotaDatos.ObtenerCuotasPendientes(cliente.getCLIENTE_ID());
+
+            if (cuotasPendientes.Count == 0)
+            {
+                MessageBox.Show("El cliente no tiene deuda pendiente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Cobrar formularioCobro = new Cobrar();
+                formularioCobro.cliente = cliente;
+                formularioCobro.cuotasPendientes = cuotasPendientes;
+
+                formularioCobro.Show();
+            }
         }
     }
 }

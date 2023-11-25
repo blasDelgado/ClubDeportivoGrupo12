@@ -99,14 +99,15 @@
             lblRol.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblRol.Location = new Point(736, 41);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(72, 20);
+            lblRol.Size = new Size(56, 15);
             lblRol.TabIndex = 5;
             lblRol.Text = "Hola, Rol";
             // 
             // FormMenuPpal
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(891, 502);
             ControlBox = false;
             Controls.Add(lblRol);
