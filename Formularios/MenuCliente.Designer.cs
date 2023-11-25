@@ -97,6 +97,7 @@
             ImprimirButton.TabIndex = 5;
             ImprimirButton.Text = "Imprimir Carnet";
             ImprimirButton.UseVisualStyleBackColor = false;
+            ImprimirButton.Click += ImprimirButton_Click;
             // 
             // MasButton
             // 

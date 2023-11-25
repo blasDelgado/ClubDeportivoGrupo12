@@ -17,22 +17,15 @@ namespace ClubDeportivo.Formularios
 {
     public partial class PrintCarnet : Form
     {
-        internal long dni;
 
-        public PrintCarnet(long dni)
+        public PrintCarnet()
         {
-            this.dni = dni;
             InitializeComponent();
-            
+
         }
-
+        internal Cliente? cliente;
         private void PrintCarnet_Load(object sender, EventArgs e)
-        {
-            // buscar al cliente en la base de datos
-            Datos.ClienteDatos cli = new Datos.ClienteDatos();
-            Cliente cliente = cli.IdentificarCliente(this.dni);
-
-
+        {          
             labelNombre.Text = cliente.getNombre();
             lblApellido.Text = cliente.getApellido();
             lblDni.Text = cliente.getDni().ToString();
@@ -41,8 +34,6 @@ namespace ClubDeportivo.Formularios
             lblTelefono.Text = cliente.getTelefono();
             lblSocio.Text = cliente.getCLIENTE_ID().ToString();
             lblDfecha.Text = DateTime.UtcNow.ToShortDateString();
-
-
         }
 
 
@@ -53,20 +44,32 @@ namespace ClubDeportivo.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /* -----------------------------------------------------
-             * Ocultamos los botones que no pertenecen al diseño
-             * pero si para la funcionalidad
-             * Usamos la propiedad VISIBLE y los posibles
-             * valores son True o False
-             * ---------------------------------------------------- */
-            btnImprimir.Visible = false;
-            /* ---------------------------------------
-            * creamos los objetos para la impresion
-            * ------------------------------------------ */
-            PrintDocument pd = new PrintDocument();
-            pd.PrintPage += new PrintPageEventHandler(ImprimirForm1);
-            pd.Print();
+
+            btnImprimir.Visible = false; // se oculta el boton momentaneamente para que no salga en la impresion del documento
+
+            // Creamos una instancia PrintDialog. 
+            PrintDialog printDialog = new PrintDialog();
+
+            // Mostramos la ventana para elegir impresora y almacenamos su return en una variable tipo DialogResult
+            DialogResult result = printDialog.ShowDialog();
+
+            // Si el usuario hace click en Imprimir del cuadro de dialogo anterior
+            if (result == DialogResult.OK)
+            {
+                // Logica de impresión
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += new PrintPageEventHandler(ImprimirForm1);
+
+                // Agregamos al objeto PrintDocument la impresora seleccionada
+                pd.PrinterSettings = printDialog.PrinterSettings;
+
+                // se inicia la impresion
+                pd.Print();
+            }
+
             btnImprimir.Visible = true; // visualizamos nuevamente el objeto
+            MessageBox.Show("Impresión existosa", "AVISO",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void ImprimirForm1(object o, PrintPageEventArgs e)
@@ -81,8 +84,6 @@ namespace ClubDeportivo.Formularios
             Point p = new Point(100, 100);
             e.Graphics.DrawImage(img, p);
 
-
-            this.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -90,9 +91,5 @@ namespace ClubDeportivo.Formularios
 
         }
 
-        // private void PrintCarnet_Load(object sender, EventArgs e)
-        ///{
-
-        //}
     }
 }

@@ -56,5 +56,12 @@ namespace ClubDeportivo.Formularios
             asociar.cliente = cliente;
             asociar.Show();
         }
+
+        private void ImprimirButton_Click(object sender, EventArgs e)
+        {
+            PrintCarnet printCarnet = new PrintCarnet();
+            printCarnet.cliente = cliente;
+            printCarnet.Show();
+        }
     }
 }

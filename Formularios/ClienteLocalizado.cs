@@ -43,7 +43,7 @@ namespace ClubDeportivo
 
         private void btnImprimirCarnet_Click(object sender, EventArgs e)
         {
-            PrintCarnet formCarnet = new PrintCarnet(this.cliente.getDni());
+            PrintCarnet formCarnet = new PrintCarnet();
 
             formCarnet.Show();
         }
