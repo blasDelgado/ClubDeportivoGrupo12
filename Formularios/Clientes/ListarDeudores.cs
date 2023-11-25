@@ -12,26 +12,26 @@ using System.Windows.Forms;
 
 namespace ClubDeportivo.Formularios.Clientes
 {
-    public partial class frmListarClientes : Form
+    public partial class frmListarDeudores : Form
     {
-        public frmListarClientes()
+        public frmListarDeudores()
         {
             InitializeComponent();
         }
 
-        private void ListarClientes_Load(object sender, EventArgs e)
+        private void frmListarDeudores_Load(object sender, EventArgs e)
         {
             DataTable dataTable = new DataTable();
             MySqlDataReader resultado;
             ClientesDatos sqlCon = new ClientesDatos();
             try
             {
-                resultado = sqlCon.listarClientes();
+                resultado = sqlCon.listarDeudores();
                 dataTable.Load(resultado);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); };
 
-            dtgvClientes.DataSource = dataTable;
+            dtgvDeudores.DataSource = dataTable;
 
         }
 
@@ -40,14 +40,10 @@ namespace ClubDeportivo.Formularios.Clientes
             this.Hide();
         }
 
-        private void dtgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvDeudores_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void lblTitCliente_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

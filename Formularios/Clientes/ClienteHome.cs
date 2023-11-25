@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ClubDeportivo.Formularios.Clientes
 {
-    public partial class ClienteHome : Form
+    public partial class frmClienteHome : Form
     {
-        public ClienteHome()
+        public frmClienteHome()
         {
             InitializeComponent();
         }
@@ -24,8 +24,14 @@ namespace ClubDeportivo.Formularios.Clientes
 
         private void btnListClientes_Click(object sender, EventArgs e)
         {
-            ListarClientes listarClientes = new ListarClientes();
+            frmListarClientes listarClientes = new frmListarClientes();
             listarClientes.ShowDialog();
+        }
+
+        private void btnListDeudores_Click(object sender, EventArgs e)
+        {
+            frmListarDeudores listarDeudores = new frmListarDeudores();
+            listarDeudores.ShowDialog();
         }
     }
 }

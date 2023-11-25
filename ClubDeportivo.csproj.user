@@ -22,6 +22,15 @@
     <Compile Update="Formularios\BuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\Clientes\ClienteHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Clientes\ListarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Clientes\ListarDeudores.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\ContratarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -35,6 +44,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\MenuCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\PrintCarnet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\SinLocalizarCliente.cs">

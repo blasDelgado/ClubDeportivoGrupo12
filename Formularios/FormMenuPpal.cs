@@ -40,7 +40,7 @@ namespace ClubDeportivo
 
         private void ClientesButton_Click(object sender, EventArgs e)
         {
-            ClienteHome clienteHome = new ClienteHome();
+            frmClienteHome clienteHome = new frmClienteHome();
             clienteHome.ShowDialog();
         }
 
