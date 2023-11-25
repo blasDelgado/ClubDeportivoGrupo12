@@ -68,7 +68,6 @@ namespace ClubDeportivo.Formularios
             }
 
             btnImprimir.Visible = true; // visualizamos nuevamente el objeto
-            MessageBox.Show("Impresión existosa", "AVISO",MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
