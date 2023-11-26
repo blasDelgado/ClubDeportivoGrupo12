@@ -86,6 +86,7 @@
             CobrarButton.TabIndex = 4;
             CobrarButton.Text = "Cobrar";
             CobrarButton.UseVisualStyleBackColor = false;
+            CobrarButton.Click += CobrarButton_Click;
             // 
             // ImprimirButton
             // 
@@ -147,6 +148,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(891, 502);
+            ControlBox = false;
             Controls.Add(btnMenuPpal);
             Controls.Add(lblCliente);
             Controls.Add(UsuarioPictureBox);
