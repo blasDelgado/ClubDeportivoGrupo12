@@ -22,16 +22,8 @@ namespace ClubDeportivo.Formularios.Clientes
         private void frmListarDeudores_Load(object sender, EventArgs e)
         {
             DataTable dataTable = new DataTable();
-            MySqlDataReader resultado;
-            ClientesDatos sqlCon = new ClientesDatos();
-            try
-            {
-                resultado = sqlCon.listarDeudores();
-                dataTable.Load(resultado);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); };
-
-            dtgvDeudores.DataSource = dataTable;
+            ClienteDatos clienteDatos = new ClienteDatos();
+            dtgvDeudores.DataSource = clienteDatos.listarDeudores();
 
         }
 
