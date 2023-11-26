@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Entidades;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -224,7 +225,7 @@ namespace ClubDeportivo.Datos
             }
         }
 
-        private bool ClienteYaAsociado(long clienteID, MySqlConnection connection)
+        public bool ClienteYaAsociado(long clienteID, MySqlConnection connection)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM socio WHERE Cliente_ID = @ClienteID", connection);
             cmd.Parameters.Add("@ClienteID", MySqlDbType.Int64).Value = clienteID;
@@ -236,5 +237,104 @@ namespace ClubDeportivo.Datos
             return count > 0;
         }
 
+        public bool ClienteEsNoSocio(long clienteID, MySqlConnection connection)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM noSocio WHERE Cliente_ID = @ClienteID", connection);
+            cmd.Parameters.Add("@ClienteID", MySqlDbType.Int64).Value = clienteID;
+
+            connection.Open();
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            connection.Close();
+
+            return count > 0;
+        }
+
+
+        public List<Actividad> ActividadesCliente (long clienteID)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+            List<Actividad> actividades = new List<Actividad>();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                string cmdString = @"SELECT actividad.nombre, actividad.frecuencia, actividad.precio
+                                       FROM actividad 
+                                      INNER JOIN actividad_cliente ON actividad.ACTIVIDAD_ID = actividad_cliente.ActividadID 
+                                      INNER JOIN noSocio ON actividad_cliente.NoSocio_ID = noSocio.NoSocio_ID 
+                                      INNER JOIN cliente ON noSocio.Cliente_ID = cliente.CLIENTE_ID 
+                                      WHERE cliente.CLIENTE_ID = @ClienteID
+                                        AND actividad_cliente.VigenciaActividad = current_date()";
+                MySqlCommand cmd = new MySqlCommand(cmdString, sqlCon);
+                cmd.Parameters.Add("@ClienteID", MySqlDbType.Int64).Value= clienteID;
+
+                sqlCon.Open();
+                MySqlDataReader result = cmd.ExecuteReader();
+                
+
+                while (result.Read())
+                {
+                    Actividad actividad = new Actividad(
+                        Convert.ToString(result["nombre"])!,
+                        Convert.ToInt64(result["precio"]),
+                        Convert.ToString(result["frecuencia"])!
+                    );
+                    actividades.Add(actividad);
+                }
+
+                sqlCon.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+
+            return actividades;
+
+        }
+
+        public void RegistrarNoSocio (long clienteID, MySqlConnection sqlCon)
+        {
+
+            string cmdString = @"INSERT INTO noSocio(NoSocio_ID, Cliente_ID, FechaAlta) values 
+                                 (default, @clienteID , current_date() );";
+            MySqlCommand cmd = new MySqlCommand(cmdString, sqlCon);
+            cmd.Parameters.Add("@ClienteID", MySqlDbType.Int64).Value = clienteID;
+            sqlCon.Open();
+            MySqlDataReader result = cmd.ExecuteReader();
+            sqlCon.Close();
+
+        }
+
+        public void RegistrarActividadCliente (string nombreActividad, long clienteID, MySqlConnection sqlCon)
+        {
+            // Obtengo el id de la actividad
+            MySqlCommand cmdActividadID = new MySqlCommand("SELECT Actividad_ID FROM actividad WHERE nombre = @nombreActividad", sqlCon);
+            cmdActividadID.Parameters.Add("@nombreActividad", MySqlDbType.String).Value = nombreActividad;
+
+            // Obtengo el ID como NoSocio
+            MySqlCommand cmdNoSocioID = new MySqlCommand("SELECT NoSocio_ID FROM noSocio WHERE Cliente_ID = @ClienteID", sqlCon);
+            cmdNoSocioID.Parameters.Add("@ClienteID", MySqlDbType.Int32).Value = clienteID;
+
+            sqlCon.Open();
+
+            int actividadID = Convert.ToInt32(cmdActividadID.ExecuteScalar());
+            int noSocioID = Convert.ToInt32(cmdNoSocioID.ExecuteScalar());
+
+            // Ejecuto insert a la base
+            MySqlCommand cmdInsert = new MySqlCommand("INSERT INTO actividad_cliente (NoSocio_ID, ActividadID, VigenciaActividad) values (@NoSocio_ID, @Actividad_ID, current_date());", sqlCon);
+            cmdInsert.Parameters.Add("@Actividad_ID", MySqlDbType.Int32).Value = actividadID;
+            cmdInsert.Parameters.Add("@NoSocio_ID", MySqlDbType.Int32).Value = noSocioID;
+            cmdInsert.ExecuteNonQuery();
+            
+            sqlCon.Close();
+        }
     }
 }

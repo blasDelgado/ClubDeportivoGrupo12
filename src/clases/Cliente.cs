@@ -4,7 +4,10 @@
 
 
 
-    public class Cliente
+using ClubDeportivo.Datos;
+using MySql.Data.MySqlClient;
+
+public class Cliente
     {
         private long CLIENTE_ID;
         private string nombre;
@@ -16,16 +19,6 @@
         private long dni;
         private Boolean aptoFisicoVigente;
         private int carnet_ID;
-
-
-        //Metodos
-
-        public Boolean identificarCliente(long dni)
-        {
-            return false;
-        }
-
-
 
 
         //Constructor
@@ -151,7 +144,101 @@
             this.carnet_ID = carnet_ID;
         }
 
+        public bool ValidarSocio()
+        {
+            ClienteDatos clienteDatos = new ClienteDatos();
+            MySqlConnection sqlCon = new MySqlConnection();
 
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                if (clienteDatos.ClienteYaAsociado(getCLIENTE_ID(), sqlCon))
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
 
+            return false;
+        }
+
+        public bool ValidarNoSocio()
+        {
+            ClienteDatos clienteDatos = new ClienteDatos();
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                if (clienteDatos.ClienteEsNoSocio(getCLIENTE_ID(), sqlCon))
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+
+            return false;
+        }
+
+        public void InscribirNoSocio()
+        {
+            ClienteDatos clienteDatos = new ClienteDatos();
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                clienteDatos.RegistrarNoSocio(getCLIENTE_ID(), sqlCon);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+    
+        }
+
+        public void ContratarActividad(string nombreActividad)
+        {
+            ClienteDatos clienteDatos = new ClienteDatos();
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                clienteDatos.RegistrarActividadCliente(nombreActividad, getCLIENTE_ID() , sqlCon);
+                MessageBox.Show("Actividad Contratada con éxito", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Actividad no contratada: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
     }
+}
 
