@@ -1,6 +1,6 @@
 ﻿namespace ClubDeportivo.Formularios.Clientes
 {
-    partial class ClienteHome
+    partial class frmClienteHome
     {
         /// <summary>
         /// Required designer variable.
@@ -54,15 +54,16 @@
             btnListDeudores.TabIndex = 2;
             btnListDeudores.Text = "Ver lista de deudores";
             btnListDeudores.UseVisualStyleBackColor = true;
+            btnListDeudores.Click += btnListDeudores_Click;
             // 
-            // ClienteHome
+            // frmClienteHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnListDeudores);
             Controls.Add(btnListClientes);
-            Name = "ClienteHome";
+            Name = "frmClienteHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clientes";
             Load += ClienteHome_Load;

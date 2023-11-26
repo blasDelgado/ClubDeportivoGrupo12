@@ -1,6 +1,6 @@
 ﻿namespace ClubDeportivo.Formularios.Clientes
 {
-    partial class ListarClientes
+    partial class frmListarClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,7 @@
             lblTitCliente.Size = new Size(92, 28);
             lblTitCliente.TabIndex = 14;
             lblTitCliente.Text = "Clientes:";
+            lblTitCliente.Click += lblTitCliente_Click;
             // 
             // btnVolver
             // 
@@ -71,7 +72,7 @@
             btnVolver.UseVisualStyleBackColor = false;
             btnVolver.Click += btnVolver_Click;
             // 
-            // ListarClientes
+            // frmListarClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -79,7 +80,7 @@
             Controls.Add(btnVolver);
             Controls.Add(lblTitCliente);
             Controls.Add(dtgvClientes);
-            Name = "ListarClientes";
+            Name = "frmListarClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lista de clientes";
             Load += ListarClientes_Load;
