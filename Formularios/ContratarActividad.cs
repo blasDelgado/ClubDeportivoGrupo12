@@ -73,10 +73,27 @@ namespace ClubDeportivo.Formularios
                 else
                 {
                     // Abrir Form Pago.cs
+                    frmMedioDePago medioDePago = new frmMedioDePago();
+                    ActividadesDatos actividadesDatos = new ActividadesDatos();
+                    Actividad actividad = actividadesDatos.BuscarActividadPorNombre(actividadAContratar);
+                    medioDePago.nombre = "Actividad: " + actividad.getNombreActividad();
+                    medioDePago.importe = (actividad.getPrecioActividad()).ToString("$ #.#,##", System.Globalization.CultureInfo.GetCultureInfo("ar-AR")); ;
+                    medioDePago.frecuencia = "Frecuencia: " + actividad.getFrecuencia();
+                    medioDePago.fVencimiento = DateTime.UtcNow.ToShortDateString();
+                    medioDePago.cliente = cliente;
+                    medioDePago.ShowDialog();
 
                     // Si el pago retornó OK, hacer el insert SQL de la actividad en ActividadesContratadas de la Entidad actividad_cliente
-                    cliente.ContratarActividad(actividadAContratar);
-                    this.Close();
+                    if(medioDePago.pagoOK)
+                    {
+                        cliente.ContratarActividad(actividadAContratar);
+                        //MessageBox.Show("Actividad Contratada (simulacro)");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al pagar. Actividad no contratada. Por favor intente nuevamente.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 

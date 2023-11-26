@@ -43,6 +43,12 @@
     <Compile Update="Formularios\FormMenuPpal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\ImprimirTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\MedioDePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\MenuCliente.cs">
       <SubType>Form</SubType>
     </Compile>
