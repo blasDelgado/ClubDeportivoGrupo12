@@ -22,7 +22,7 @@ namespace ClubDeportivo.Datos
             this.servidor = "localhost";
             this.puerto = "3306";
             this.usuario = "root";
-            this.clave = "";
+            this.clave = "pass1234";
         }
 
         // proceso de interacción

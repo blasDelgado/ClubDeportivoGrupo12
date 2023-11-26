@@ -113,6 +113,8 @@ namespace ClubDeportivo.Datos
                     return TipoDeCuotaEnum.SEMANAL;
                 case "MENSUAL":
                     return TipoDeCuotaEnum.MENSUAL;
+                case "CUOTA_SOCIO":
+                    return TipoDeCuotaEnum.CUOTA_SOCIO;
                 default:
                     throw new ArgumentException($"No se pudo convertir '{valor}' a TipoDeCuotaEnum.");
             }

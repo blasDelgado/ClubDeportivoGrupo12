@@ -138,6 +138,8 @@ namespace ClubDeportivo.Formularios
 
                 //--------------------*******----------------
                 // Agregar aca la union con el ticket para imprimirlo
+
+
             }
             else
             {
