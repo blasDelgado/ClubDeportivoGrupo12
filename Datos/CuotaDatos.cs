@@ -119,5 +119,39 @@ namespace ClubDeportivo.Datos
         }
 
 
+        public void PagarCuotas(List<Cuota> cuotas, string formaPago, DateTime fechaPago)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                MySqlCommand cmd = new MySqlCommand("PagarCuotas", sqlCon);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                List<long> cuotaIDs = cuotas.Select(c => c.getCuota_id()).ToList();
+                cmd.Parameters.Add("pCuotaIDs", MySqlDbType.VarChar).Value = string.Join(",", cuotaIDs);
+
+                // Agregar los nuevos parámetros
+                cmd.Parameters.Add("pFormaPago", MySqlDbType.VarChar).Value = formaPago;
+                cmd.Parameters.Add("pFechaPago", MySqlDbType.Date).Value = fechaPago;
+
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al pagar las cuotas: {ex.Message}");
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
+
+
     }
 }
