@@ -50,9 +50,9 @@ namespace ClubDeportivo
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             ListarActividades listarActividades = new ListarActividades();
-            listarActividades.Show();
+            listarActividades.ShowDialog();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -73,10 +73,10 @@ namespace ClubDeportivo
                 try
                 {
                     sqlCon.agregarActividad(actividad);
-                    this.Hide();
+                    this.Close();
                     MessageBox.Show($"Actividad :  {actividad} agregada.");
                     ListarActividades listarActividades = new ListarActividades();
-                    listarActividades.Show();
+                    listarActividades.ShowDialog();
 
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); };

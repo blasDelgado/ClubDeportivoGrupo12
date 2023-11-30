@@ -38,5 +38,11 @@ namespace ClubDeportivo
         {
 
         }
+
+        private void btnMenuPpal_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }
